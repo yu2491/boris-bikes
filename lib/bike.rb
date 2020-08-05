@@ -1,5 +1,3 @@
-
-
 class Bike
 
 	def working?
