@@ -10,14 +10,14 @@ class DockingStation
 	end
 
 	def release_bike
-		@bikes.delete_if { |bike| bike.broken? }
-    fail 'No bikes available' if empty?
+		working_bikes = @bikes.reject { |bike| bike.broken? }
+    fail 'No bikes available' if working_bikes.empty?
 		@bikes.pop
   end
 
 	def dock(bike)
 		fail 'Docking station full' if full?
-		@bikes << bike
+		bike.broken? ? @bikes.unshift(bike) : @bikes << bike
 	end
 
 	attr_reader :bike, :capacity
@@ -27,8 +27,8 @@ class DockingStation
 		@bikes.count >= DEFAULT_CAPACITY
 	end
 
-	def empty?
-		@bikes.empty?
-	end
+	#def empty?
+	#	@bikes.empty?
+	#end
 
 end

@@ -1,6 +1,6 @@
 class Bike
 
-	#£def initialize(broken = false)
+	#def initialize(broken = false)
 	#	@broken = broken
 	#endr
 
