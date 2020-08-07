@@ -9,6 +9,16 @@ describe DockingStation do
   	expect(bike).to be_working
   end
 
+  it 'can set capacity instance variable' do
+    station = DockingStation.new(10)
+    expect(station.capacity).to eq 10
+  end
+
+  it 'has a default capacity' do
+    station = DockingStation.new
+    expect(station.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
+
   describe '#release_bike' do
     it { is_expected.to respond_to('release_bike') }
 
